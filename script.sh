@@ -47,12 +47,11 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 # helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo update
 # Install chart
-# helm install prometheus prometheus-community/kube-prometheus-stack
-helm install alertmanager prometheus-community/alertmanager
+helm install prometheus prometheus-community/kube-prometheus-stack
 
 # helm install prometheus prometheus-community/prometheus
 
-helm install prometheus prometheus-community/kube-prometheus-stack --set alertmanager.enabled=false
+# helm install prometheus prometheus-community/kube-prometheus-stack --set alertmanager.enabled=false
 
 
 # Get Info about the stack
@@ -67,7 +66,7 @@ kubectl port-forward deployment/prometheus-grafana 3000 --address 0.0.0.0
 # Access Prometheus UI (optional)
 kubectl port-forward prometheus-prometheus-prometheus-oper-prometheus-0 9090 --address 0.0.0.0
 
-# helm list -A
+helm list -A
 
 helm upgrade -f values.yml alertmanager prometheus-community/alertmanager 
   
