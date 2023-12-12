@@ -61,8 +61,8 @@ kubectl port-forward deployment/prometheus-grafana 3000 --address 0.0.0.0
 # Access Prometheus UI (optional)
 kubectl port-forward prometheus-prometheus-prometheus-oper-prometheus-0 9090 --address 0.0.0.0
 
-# helm upgrade -f value1.yml alertmanager prometheus-community/prometheus  
-
+# helm upgrade -f values.yml alertmanager prometheus-community/alertmanager
+  
 # Install stress-ng
 sudo apt install stress-ng -y
 # stress the system ;) modifid the commands for the 70% usage but need to cross-check
