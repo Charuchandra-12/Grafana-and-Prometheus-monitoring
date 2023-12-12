@@ -31,6 +31,7 @@ sudo snap install kubectl --classic
 
 # Start the minukube
 sudo usermod -aG docker $USER && newgrp docker
+
 minikube start --vm-driver=docker
 
 # Install helm
@@ -60,6 +61,7 @@ kubectl port-forward deployment/prometheus-grafana 3000 --address 0.0.0.0
 # Access Prometheus UI (optional)
 kubectl port-forward prometheus-prometheus-prometheus-oper-prometheus-0 9090 --address 0.0.0.0
 
+# helm upgrade -f value1.yml alertmanager prometheus-community/prometheus  
 
 # Install stress-ng
 sudo apt install stress-ng -y

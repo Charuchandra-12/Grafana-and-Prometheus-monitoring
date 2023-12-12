@@ -1,0 +1,27 @@
+config:
+  enabled: true
+  global:
+    resolve_timeout: 5m
+  templates:
+    - "/etc/alertmanager/*.tmpl"
+  receivers:
+    - name: "email-notifications"
+      email_configs:
+        - to: "kogewev477@getmola.com"
+          from: "chinmaykubal12@gmail.com"
+          smarthost: "smtp.mailtrap.io:587"
+          # auth_username: '<your email id here>'
+          # auth_password: "<your app password here>"
+
+  route:
+    group_wait: 10s
+    group_interval: 5m
+    receiver: "email-notifications"
+    repeat_interval: 3h
+    routes:
+      - match: cpu_usage > 70
+        receiver: "email-notifications"
+      - match: memory_usage > 70
+        receiver: "email-notifications"
+      - match: disk_usage > 70
+        receiver: "email-notifications"
