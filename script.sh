@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# install Grafana and Prometheus monitor the cpu,ram and storage and make email alerts for 70 percentage usage for all monitors.
+# Install Grafana and Prometheus to monitor the CPU, RAM, and storage and make email alerts for 70 percent usage for all monitors.
 
 # using t2.xlarge
 
@@ -72,7 +72,7 @@ kubectl port-forward prometheus-prometheus-prometheus-oper-prometheus-0 9090 --a
 # Install stress-ng
 sudo apt install stress-ng -y
 
-# stress the system ;) modify the commands for the 75% usage
+# stress the system ;) modify the commands for the 70% usage
 stress-ng --cpu 2 --timeout 60s
 stress-ng --vm 2 --vm-bytes 1G --timeout 60s
 stress-ng --hdd 2 --timeout 60s 
