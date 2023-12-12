@@ -72,7 +72,7 @@ kubectl port-forward prometheus-prometheus-prometheus-oper-prometheus-0 9090 --a
 # Install stress-ng
 sudo apt install stress-ng -y
 
-# stress the system ;) modify the commands for the 70% usage
-stress-ng --cpu 2 --timeout 60s
-stress-ng --vm 2 --vm-bytes 1G --timeout 60s
-stress-ng --hdd 2 --timeout 60s 
+# stress the system ;) modifid the commands for the 70% usage but need to cross-check
+stress-ng --cpu 2 --cpu-load 70 --timeout 60s &
+stress-ng --vm 2 --vm-bytes 10G --timeout 60s &
+stress-ng --hdd 2 --hdd-bytes 1G --timeout 60s &
