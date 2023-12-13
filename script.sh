@@ -32,7 +32,9 @@ sudo snap install kubectl --classic
 # Start the minukube
 sudo usermod -aG docker $USER && newgrp docker
 
-minikube start --vm-driver=docker
+# minikube start --vm-driver=docker
+minikube start --cpus 2 --memory 8192 --vm-driver=docker
+
 
 # Install helm
 curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
@@ -47,11 +49,11 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 # helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo update
 # Install chart
-helm install prometheus prometheus-community/kube-prometheus-stack
+# helm install prometheus prometheus-community/kube-prometheus-stack
 
 # helm install prometheus prometheus-community/prometheus
 
-# helm install prometheus prometheus-community/kube-prometheus-stack --set alertmanager.enabled=false
+helm install prometheus prometheus-community/kube-prometheus-stack --set alertmanager.enabled=false
 
 
 # Get Info about the stack
@@ -68,7 +70,9 @@ kubectl port-forward prometheus-prometheus-prometheus-oper-prometheus-0 9090 --a
 
 helm list -A
 
-helm upgrade -f values.yml alertmanager prometheus-community/alertmanager 
+# helm upgrade -f values.yml alertmanager prometheus-community/alertmanager 
+helm install alertmanager prometheus-community/alertmanager 
+# helm uninstall alertmanager
   
 # Install stress-ng
 sudo apt install stress-ng -y
@@ -79,3 +83,5 @@ stress-ng --hdd 2 --hdd-bytes 1G --timeout 60s &
 
 # helm ls --all --short | xargs -L1 helm delete
 # helm show values prometheus-community/alertmanager
+
+# kubectl get servicemonitor
