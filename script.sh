@@ -45,15 +45,15 @@ sudo apt-get install helm -y
 
 # INSTALL Prometheus-operator
 # add repos
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts && helm repo update
 # helm repo add stable https://kubernetes-charts.storage.googleapis.com/
-helm repo update
+
 # Install chart
-# helm install prometheus prometheus-community/kube-prometheus-stack
+helm install prometheus prometheus-community/kube-prometheus-stack -f values.yml
 
 # helm install prometheus prometheus-community/prometheus
 
-helm install prometheus prometheus-community/kube-prometheus-stack --set alertmanager.enabled=false
+# helm install prometheus prometheus-community/kube-prometheus-stack --set alertmanager.enabled=false
 
 
 # Get Info about the stack
