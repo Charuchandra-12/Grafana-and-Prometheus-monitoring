@@ -2,13 +2,13 @@ grafana:
   grafana.ini:
     smtp:
       enabled: true
-      host: smtp.freesmtpservers.com:25
-      user: alrick.roger@deecie.com
-      password: btzcz5Z&
+      host: smtp.gmail.com:587
+      user: test.email.inthehood@gmail.com
+      password: nrvcwplqsvieautga
       cert_file:
       key_file:
-      from_address: alrick.roger@deecie.com
+      from_address: test.email.inthehood@gmail.com
       from_name: Grafana
-      skip_verify: true
+      skip_verify: false
       ehlo_identity:
       startTLS_policy:
