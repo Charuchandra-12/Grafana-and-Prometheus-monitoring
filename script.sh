@@ -70,9 +70,10 @@ helm list -A
 # Install stress-ng
 sudo apt install stress-ng -y
 # stress the system 
-stress-ng --cpu 4 --cpu-load 70 --timeout 120s &
-stress-ng --vm 2 --vm-bytes 10G --timeout 60s &
-stress-ng --hdd 2 --hdd-bytes 1G --timeout 60s &
+stress-ng --cpu 4 --cpu-load 75 --timeout 120s 
+stress-ng --vm 1 --vm-bytes 12G --timeout 120s 
+stress-ng --hdd 1 --hdd-bytes 18G --timeout 120s 
+
 
 
 
